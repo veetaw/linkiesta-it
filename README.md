@@ -4,4 +4,4 @@
 ### Screenshots
 Homepage                   |  Article preview
 :-------------------------:|:-------------------------:
-![homepage](.github\home.jpg)  |  ![preview](.github\preview.jpg)
+![homepage](.github/home.jpg)  |  ![preview](.github/preview.jpg)
