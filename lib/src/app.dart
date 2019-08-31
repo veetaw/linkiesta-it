@@ -6,12 +6,34 @@ import 'package:connectivity_widget/connectivity_widget.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:linkiesta/src/common/utils.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:linkiesta/src/last_news/homepage.dart';
 import 'package:linkiesta/src/feed/linkiesta.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  void initState() {
+    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+    _firebaseMessaging.subscribeToTopic("all");
+    _firebaseMessaging.configure(
+      onMessage: (message) async {
+      },
+      onLaunch: (message) async {
+      },
+      onResume: (message) async {
+      },
+    );
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting();
